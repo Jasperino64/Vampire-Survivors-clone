@@ -125,7 +125,7 @@ TextureImporter:
         width: 79
         height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,6 +133,27 @@ TextureImporter:
       bones: []
       spriteID: fe2a78ab45dc1ae4f96d2646eb6108f2
       internalID: -479870662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_tilesheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 103
+        width: 79
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95f2287a2baf964c8543ed3b8ac2f83
+      internalID: 1789417489
       vertices: []
       indices: 
       edges: []
@@ -148,6 +169,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      player_tilesheet_1: 1789417489
       player_tilesheet_0: -479870662
   spritePackingTag: 
   pSDRemoveMatte: 0

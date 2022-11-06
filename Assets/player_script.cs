@@ -4,22 +4,35 @@ using UnityEngine;
 
 public class player_script : MonoBehaviour
 {
-    public float PlayerSpeed { get; set; }
+    public float PlayerSpeed;
+    public Sprite sprite1;
+    public Sprite sprite2;
+
+    private int loop_counter = 0;
     // Start is called before the first frame update
     void Start()
     {
-        PlayerSpeed = 0.3f;
     }
 
     // Update is called once per frame
     void Update() 
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        // move based on WASD input.
+        // For some reason this seems more snappy than using Input.GetAxis
+        float x_speed = 
+            Input.GetKey(KeyCode.D) ? PlayerSpeed :
+            Input.GetKey(KeyCode.A) ? -PlayerSpeed : 0;
+        float y_speed = 
+            Input.GetKey(KeyCode.W) ? PlayerSpeed:
+            Input.GetKey(KeyCode.S) ? -PlayerSpeed : 0;
+        this.transform.Translate(x_speed, y_speed, 0);
 
-        if (Input.GetKey(KeyCode.D)) this.transform.Translate(PlayerSpeed, 0, 0);
-        if (Input.GetKey(KeyCode.A)) this.transform.Translate(-PlayerSpeed, 0, 0);
-        if (Input.GetKey(KeyCode.W)) this.transform.Translate(0, PlayerSpeed, 0);
-        if (Input.GetKey(KeyCode.S)) this.transform.Translate(0, -PlayerSpeed, 0);
+        // while we're moving, change the sprites
+        bool is_moving = x_speed != 0 || y_speed != 0;
+        if (is_moving)
+        {
+            var renderer = this.GetComponent<SpriteRenderer>();
+            renderer.sprite = (loop_counter++ / 10) % 2 == 0 ? sprite1 : sprite2;
+        }
     }
 }
